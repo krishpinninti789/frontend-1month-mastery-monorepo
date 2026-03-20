@@ -157,3 +157,20 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.dev/docs/reference/configuration)
 - [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+
+
+# Frontend Engineer 30-Day Monorepo
+
+## Structure
+- apps/web → all projects
+- packages → reusable logic
+- content → learning + schedule
+
+## Highlights
+- 30 mini projects
+- DSA practice
+- React + Next.js mastery
+- System design prep
+
+## Goal
+Become interview-ready in 30 days with production-level skills.
