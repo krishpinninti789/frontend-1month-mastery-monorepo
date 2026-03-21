@@ -1,22 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { Button } from "@repo/ui";
+import { useRef, useState } from "react";
 
-export default function DAY02() {
-  const [state, setState] = useState("");
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment: () => ++count,
+    decrement: () => --count,
+    getCurrentCount: () => count,
+  };
+}
+
+export default function Page() {
+  const counterRef = useRef(createCounter());
+  const [, forceUpdate] = useState(0);
+
+  const updateUI = () => forceUpdate((p) => p + 1);
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="p-2">
       <h1>DAY-02</h1>
-      <p>Build your daily project here</p>
 
-      <input
-        value={state}
-        onChange={(e) => setState(e.target.value)}
-        placeholder="Type something"
-      />
+      <Button
+        onClick={() => {
+          counterRef.current.increment();
+          updateUI();
+        }}
+      >
+        Increment
+      </Button>
 
-      <p>{state}</p>
+      <Button
+        onClick={() => {
+          counterRef.current.decrement();
+          updateUI();
+        }}
+      >
+        Decrement
+      </Button>
+
+      <p>{counterRef.current.getCurrentCount()}</p>
     </div>
   );
 }
